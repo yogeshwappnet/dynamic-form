@@ -1,0 +1,196 @@
+<div class="form-builder">
+    <div class="container-fluid">
+        <div class="row gx-3">
+            <div class="col-lg-8">
+                <div class="left-content">
+                    <!-- <span *ngIf="form.length == 0" class="info-text">Drag a field from the right to this area</span> -->
+                    <div>
+                        <!-- <ng-container *ngFor="let item of form">
+                            <app-header *ngIf="item.value == 'header'">
+                            </app-header>
+                        </ng-container> -->
+
+                        <div class="mt-3 fh-out">
+                            <!-- <div class="form-element rows-bg row-1"> -->
+                                <app-paragraph></app-paragraph>
+                                <app-divider></app-divider>
+                            <!-- </div> -->
+                            <!-- <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div> -->
+                        </div>
+                        <div class="mt-3 fh-out">
+                            <div class="form-element rows-bg row-3">
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-input-text></app-input-text>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-input-number></app-input-number>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-radio-button></app-radio-button>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 fh-out">
+                            <div class="form-element rows-bg row-1">
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-datepicker></app-datepicker>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 fh-out">
+                            <div class="form-element rows-bg row-3">
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-radio-button></app-radio-button>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-select></app-select>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-select-multi></app-select-multi>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 fh-out">
+                            <div class="form-element rows-bg row-3">
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-checkbox></app-checkbox>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-slider></app-slider>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-slide-toggle></app-slide-toggle>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 fh-out">
+                            <div class="form-element rows-bg row-3">
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-text-area></app-text-area>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 fh-out">
+                            <div class="form-element rows-bg row-3">
+                                <div class="rows-bg rows-bg-dark fh-in">
+                                    <app-button></app-button>
+                                    <div class="action-button align-items-center">
+                                        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png"
+                                                alt=""></a>
+                                        <a href="#" class="close-icon"><img src="../../assets/images/close.png"
+                                                alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-button align-items-center">
+                                <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+                                <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="right-sidebar">
+                    <ul>
+                        <li *ngFor="let item of componentsList">{{item.name}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
