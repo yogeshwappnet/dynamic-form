@@ -138,4 +138,23 @@ export class AddFormComponent implements OnInit {
     }
   }
 
+  validateForm(){
+    this.form.forEach((row: any) => {
+        if(!row?.children || row?.children?.length < 1){
+          this.toastr.error('Please remove the empty rows before saving the form')
+          return;
+        } else{
+          row.children.forEach((col: any) => {
+            if(!col?.properties){
+              this.toastr.error('Please set properties for all controls')
+              return;
+            }
+          });
+        }
+    });
+
+    // call api to save form
+    return true;
+  }
+
 }
