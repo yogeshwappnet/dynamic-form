@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-paragraph',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paragraph.component.scss']
 })
 export class ParagraphComponent implements OnInit {
+  @Input() item: any;
+  @Output('closeClick') closeClick = new EventEmitter();
+  @Output('editClick') editClick = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  edit(){
+    this.editClick.emit(this.item);
+  } 
+
+  close(){
+    this.closeClick.emit(this.item);
   }
 
 }

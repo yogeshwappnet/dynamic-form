@@ -22,6 +22,8 @@ import { CheckboxComponent } from './form-components/checkbox/checkbox.component
 import { ButtonComponent } from './form-components/button/button.component';
 import { InputEmailComponent } from './form-components/input-email/input-email.component';
 import { DndModule } from 'ngx-drag-drop';
+import { EditDialogComponent } from './add-form/edit-dialog/edit-dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { DndModule } from 'ngx-drag-drop';
     SlideToggleComponent,
     SliderComponent,
     TextAreaComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,8 @@ import { DndModule } from 'ngx-drag-drop';
     BrowserAnimationsModule,
     MaterialExampleModule,
     DndModule,
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],
