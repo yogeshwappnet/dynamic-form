@@ -1,8 +1,9 @@
 <div class="rows-bg rows-bg-dark fh-in">
-
-    <mat-checkbox class="example-margin">Checked</mat-checkbox>
+    <mat-checkbox class="example-margin">{{item.properties?.label}}</mat-checkbox>
     <div class="action-button align-items-center">
-        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
-        <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+        <a href="javascript:void(0)" (click)="edit()" class="edit-icon"><img src="../../assets/images/edit.png"
+                alt=""></a>
+        <a href="javascript:void(0)" (click)="close()" class="close-icon"><img src="../../assets/images/close.png"
+                alt=""></a>
     </div>
 </div>

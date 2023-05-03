@@ -1,13 +1,15 @@
 <div class="rows-bg rows-bg-dark fh-in">
     <mat-form-field appearance="fill">
-        <mat-label>Choose a date</mat-label>
+        <mat-label>{{item?.properties?.label}}</mat-label>
         <input matInput [matDatepicker]="picker">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <div class="action-button align-items-center">
-        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
-        <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+        <a href="javascript:void(0)" (click)="edit()" class="edit-icon"><img src="../../assets/images/edit.png"
+                alt=""></a>
+        <a href="javascript:void(0)" (click)="close()" class="close-icon"><img src="../../assets/images/close.png"
+                alt=""></a>
     </div>
 </div>

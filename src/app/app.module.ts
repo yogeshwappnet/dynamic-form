@@ -24,6 +24,8 @@ import { InputEmailComponent } from './form-components/input-email/input-email.c
 import { DndModule } from 'ngx-drag-drop';
 import { EditDialogComponent } from './add-form/edit-dialog/edit-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { DigitOnlyModule } from '@uiowa/digit-only';
 
 @NgModule({
   declarations: [
@@ -54,8 +56,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MaterialExampleModule,
     DndModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    DigitOnlyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

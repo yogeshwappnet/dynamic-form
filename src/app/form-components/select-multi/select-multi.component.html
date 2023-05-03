@@ -1,12 +1,16 @@
 <div class="rows-bg rows-bg-dark fh-in">
   <mat-form-field appearance="fill">
-    <mat-label>Toppings</mat-label>
+    <mat-label>{{item?.properties?.label}}</mat-label>
     <mat-select multiple>
-      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
     </mat-select>
   </mat-form-field>
-  <div class="action-button align-items-center">
-    <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
-    <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+  <div class="action-button align-items-center"> 
+    <a href="javascript: void(0)" (click)="edit()" class="edit-icon"><img
+        src="../../assets/images/edit.png" alt=""></a>
+    <a href="javascript: void(0)" (click)="close()" class="close-icon"><img src="../../assets/images/close.png" alt="">
+    </a>
   </div>
 </div>

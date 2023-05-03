@@ -1,18 +1,12 @@
 <div class="rows-bg rows-bg-dark fh-in">
 
     <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input type="number" matInput placeholder="Ex. pat@example.com">
-        <!-- <mat-error>
-        Please enter a valid email address
-    </mat-error>
-    <mat-error>
-        Email is <strong>required</strong>
-    </mat-error> -->
-
+        <mat-label>{{item.properties?.label}}</mat-label>
+        <input type="text" matInput placeholder="{{item?.properties?.placeholder}}" digitOnly [min]="item?.properties?.minimum" [max]="item?.properties?.maximum">
     </mat-form-field>
-    <div class="action-button align-items-center">
-        <a href="#" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
-        <a href="#" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
+
+      <div class="action-button align-items-center">
+        <a href="javascript: void(0)" (click)="edit()" class="edit-icon"><img src="../../assets/images/edit.png" alt=""></a>
+        <a href="javascript: void(0)" (click)="close()" class="close-icon"><img src="../../assets/images/close.png" alt=""></a>
     </div>
 </div>

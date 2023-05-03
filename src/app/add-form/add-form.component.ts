@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-form',
@@ -61,29 +62,30 @@ export class AddFormComponent implements OnInit {
     }, {
       name: 'Slide Toggle',
       value: 'slide-toggle'
-    }, {
-      name: 'Slider',
-      value: 'slider'
     },
   ]
 
-  draggable = {
-    // note that data is handled with JSON.stringify/JSON.parse
-    // only set simple data or POJO's as methods will be lost
-    data: "myDragData",
-    effectAllowed: "copy",
-    disable: false,
-    handle: false
-  };
-
   form: any = []
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
 
   onDrop(event: any, item?: any) {
+    if (item) {
+      if (event.data.value == 'row-1' || event.data.value == 'row-2' || event.data.value == 'row-3') {
+        this.toastr.error("You can't add a row to another row");
+        return false;
+      }
+    } else {
+      if (event.data.value != 'row-1' && event.data.value != 'row-2' && event.data.value != 'row-3') {
+        this.toastr.error('Please add row and then add controls to the row');
+        return false;
+      }
+    }
+
     if (item && (event.dropEffect === 'copy' || event.dropEffect === 'move')) {
       if (item?.children?.length > 0) {
         item.children.push(event.data);
@@ -91,24 +93,41 @@ export class AddFormComponent implements OnInit {
         item['children'] = [];
         item.children.push(event.data);
       }
+    } else {
+      this.form.push(event.data);
     }
+
+    return true;
   }
 
-  editItem(i: any, form: any) {
-    console.log(i)
-    this.openDialog(i, form)
+  editItem(item: any, rowIndex: any, colIndex: any) {
+    console.log(item, rowIndex, colIndex)
+    this.openDialog(item, rowIndex, colIndex, this.form)
   }
 
-  removeItem(i: any, form: any) {
+  removeRow(i: any, form: any) {
     form.splice(i, 1);
   }
 
+  removeElement(colIndex: any, rowIndex: any) {
+    this.form[rowIndex].children.splice(colIndex, 1)
+  }
 
-  openDialog(i: any, form: any) {
-    const dialogRef = this.dialog.open(EditDialogComponent);
+  openDialog(item: any, rowIndex: any, colIndex: any, form: any) {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = item;
+
+    const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result) {
+        form[rowIndex]['children'][colIndex]['properties'] = result;
+        this.form = JSON.parse(JSON.stringify(form));
+      }
     });
   }
 
