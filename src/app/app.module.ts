@@ -1,8 +1,6 @@
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgDragDropModule } from 'ng-drag-drop';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +21,7 @@ import { DatepickerComponent } from './form-components/datepicker/datepicker.com
 import { CheckboxComponent } from './form-components/checkbox/checkbox.component';
 import { ButtonComponent } from './form-components/button/button.component';
 import { InputEmailComponent } from './form-components/input-email/input-email.component';
+import { DndModule } from 'ngx-drag-drop';
 
 @NgModule({
   declarations: [
@@ -50,6 +49,7 @@ import { InputEmailComponent } from './form-components/input-email/input-email.c
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialExampleModule,
+    DndModule,
     
   ],
   providers: [],

@@ -59,6 +59,15 @@ export class AddFormComponent implements OnInit {
     },
   ]
 
+  draggable = {
+    // note that data is handled with JSON.stringify/JSON.parse
+    // only set simple data or POJO's as methods will be lost
+    data: "myDragData",
+    effectAllowed: "copy",
+    disable: false,
+    handle: false
+  };
+
   form: any = []
 
   constructor() { }
