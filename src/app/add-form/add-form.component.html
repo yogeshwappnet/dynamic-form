@@ -68,34 +68,36 @@
 
 
 <ng-template let-item #recursiveList let-row="rowIndex" let-col="colIndex">
-    <app-paragraph [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'paragraph'"></app-paragraph>
-    <app-header [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'header'"></app-header>
-    <app-button [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'button'"></app-button>
+    <div [dndDraggable]="item" dndEffectAllowed="move"  (dndMoved)="onDragged(col, row, 'move')">
+        <app-paragraph [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'paragraph'"></app-paragraph>
+        <app-header [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'header'"></app-header>
+        <app-button [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'button'"></app-button>
 
-    <app-checkbox [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'checkbox'"></app-checkbox>
-    <app-datepicker [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'datepicker'"></app-datepicker>
-    <app-divider (closeClick)="removeElement(col, row)" *ngIf="item.value == 'divider'"></app-divider>
-    <app-input-text [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'input-text'"></app-input-text>
-    <app-input-number [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'input-number'"></app-input-number>
-    <app-input-email [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'input-email'"></app-input-email>
-    <app-select [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'select'"></app-select>
-    <app-select-multi [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'select-multi'"></app-select-multi>
-    <app-text-area [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'text-area'"></app-text-area>
-    <app-radio-button [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'radio-button'"></app-radio-button>
-    <app-slide-toggle [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-        *ngIf="item.value == 'slide-toggle'"></app-slide-toggle>
-    <!-- <app-slider [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+        <app-checkbox [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'checkbox'"></app-checkbox>
+        <app-datepicker [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'datepicker'"></app-datepicker>
+        <app-divider (closeClick)="removeElement(col, row)" *ngIf="item.value == 'divider'"></app-divider>
+        <app-input-text [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'input-text'"></app-input-text>
+        <app-input-number [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'input-number'"></app-input-number>
+        <app-input-email [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'input-email'"></app-input-email>
+        <app-select [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'select'"></app-select>
+        <app-select-multi [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'select-multi'"></app-select-multi>
+        <app-text-area [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'text-area'"></app-text-area>
+        <app-radio-button [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'radio-button'"></app-radio-button>
+        <app-slide-toggle [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
+            *ngIf="item.value == 'slide-toggle'"></app-slide-toggle>
+        <!-- <app-slider [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
         *ngIf="item.value == 'slider'"></app-slider> -->
+    </div>
 </ng-template>

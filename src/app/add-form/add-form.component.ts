@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { ToastrService } from 'ngx-toastr';
+import { DropEffect } from 'ngx-drag-drop';
 
 @Component({
   selector: 'app-add-form',
@@ -131,5 +132,10 @@ export class AddFormComponent implements OnInit {
     });
   }
 
+  onDragged(colIndex: any, rowIndex: any, effect: DropEffect) {
+    if (effect === 'move') {
+      this.form[rowIndex].children.splice(colIndex, 1)
+    }
+  }
 
 }
