@@ -16,6 +16,9 @@ const routes: Routes = [{
     path: 'add',
     component: AddFormComponent
   }, {
+    path: 'edit/:id',
+    component: AddFormComponent
+  }, {
     path: 'home',
     component: ListComponent
   }, {

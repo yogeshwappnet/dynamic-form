@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { DropEffect } from 'ngx-drag-drop';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { FormService } from '../service/form.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-form',
@@ -74,12 +75,64 @@ export class AddFormComponent implements OnInit {
     name: new UntypedFormControl('', Validators.required),
     description: new UntypedFormControl('', Validators.required)
   })
+  id = 0;
 
   constructor(public dialog: MatDialog,
+    private route: ActivatedRoute,
+    private router: Router,
     private formService: FormService,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+
+    if (this.id) {
+      this.getForm();
+    }
+  }
+
+  getForm() {
+    this.formService.getForm(this.id)
+      .subscribe((res) => {
+        // this. = res.formData;
+        // this.formData.rows = res.rowData;
+
+        this.dataForm.patchValue({
+          name: res.formData.name,
+          description: res.formData.description
+        })
+
+        res.rowData = res.rowData.map((row) => {
+          row['name'] = row.rowType
+          row['value'] = row.rowVal
+          return row;
+        })
+
+        res.elementData = res.elementData.map((element) => {
+          element['name'] = element.elementType
+          element['value'] = element.elementVal
+          if (element.elementProperties) {
+            element['properties'] = JSON.parse(element.elementProperties)
+          }
+          return element;
+        })
+
+        this.form = res.rowData;
+
+
+        this.form = this.form.map((row) => {
+          let elements = res.elementData.filter((ele) => {
+            if (ele.rowId == row.id) {
+              return ele;
+            }
+          })
+          row['children'] = elements;
+          return row;
+        })
+
+        console.log(this.form);
+      })
+
   }
 
   get f() {
@@ -183,10 +236,21 @@ export class AddFormComponent implements OnInit {
         rows: this.form
       }
 
-      this.formService.saveForm(payload).subscribe((res) => {
-        console.log(res);
-        this.toastr.success('Form Saved');
-      })
+
+      if (this.id) {
+        this.formService.updateForm(this.id, payload).subscribe((res) => {
+          console.log(res);
+          this.toastr.success('Form Updated');
+          this.router.navigate(['/home'])
+        })
+      } else {
+        this.formService.saveForm(payload).subscribe((res) => {
+          console.log(res);
+          this.toastr.success('Form Saved');
+          this.router.navigate(['/home'])
+        })
+      }
+
 
     } else {
       this.dataForm.markAllAsTouched();

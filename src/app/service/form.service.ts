@@ -21,4 +21,8 @@ export class FormService {
   getForm(id) {
     return this.httpClient.get<any>(`${environment.prodUrl}${id}`);
   }
+
+  updateForm(id,body: any){
+    return this.httpClient.put<any>(`${environment.prodUrl}${id}`, body);
+  }
 }

@@ -12,7 +12,7 @@ export class ListComponent implements OnInit {
 
   constructor(private formService: FormService, private router: Router) { }
 
-  displayedColumns: string[] = ['id', 'name', 'description', 'published'];
+  displayedColumns: string[] = ['id', 'name', 'description', 'published', 'actions'];
   dataSource: any = []
   ngOnInit() {
     this.formService.getAllForms().subscribe((res) => {
