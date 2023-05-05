@@ -164,7 +164,7 @@ export class AddFormComponent implements OnInit {
           isError = true;
         } else {
           row.children.forEach((col: any) => {
-            if (!col?.properties) {
+            if (!col?.properties && col.value != 'divider') {
               this.toastr.error('Please set properties for all controls')
               isError = true
             }

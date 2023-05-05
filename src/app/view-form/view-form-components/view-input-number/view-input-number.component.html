@@ -1,0 +1,4 @@
+<mat-form-field class="example-full-width w-100">
+    <mat-label>{{item.elementProperties?.label}}</mat-label>
+    <input type="text" matInput placeholder="{{item?.elementProperties?.placeholder}}" digitOnly [min]="item?.elementProperties?.minimum" [max]="item?.elementProperties?.maximum">
+</mat-form-field>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormService } from '../service/form.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,13 +10,17 @@ import { FormService } from '../service/form.service';
 })
 export class ListComponent implements OnInit {
 
-  constructor(private formService: FormService) { }
+  constructor(private formService: FormService, private router: Router) { }
 
-  displayedColumns: string[] = ['Id', 'name', 'description', 'published'];
-
+  displayedColumns: string[] = ['id', 'name', 'description', 'published'];
+  dataSource: any = []
   ngOnInit() {
     this.formService.getAllForms().subscribe((res) => {
-      console.log(res);
+      this.dataSource = res;
     })
+  }
+
+  viewForm(id) {
+    this.router.navigate([`view/${id}`])
   }
 }

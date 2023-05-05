@@ -26,8 +26,23 @@ import { EditDialogComponent } from './add-form/edit-dialog/edit-dialog.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { DigitOnlyModule } from '@uiowa/digit-only';
-import { ListComponent } from './list/list.component';
+import { ListComponent } from './form-list/list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ViewFormComponent } from './view-form/view-form.component';
+import { ViewHeaderComponent } from './view-form/view-form-components/view-header/view-header.component';
+import { ViewParagraphComponent } from './view-form/view-form-components/view-paragraph/view-paragraph.component';
+import { ViewDividerComponent } from './view-form/view-form-components/view-divider/view-divider.component';
+import { ViewInputTextComponent } from './view-form/view-form-components/view-input-text/view-input-text.component';
+import { ViewTextAreaComponent } from './view-form/view-form-components/view-text-area/view-text-area.component';
+import { ViewButtonComponent } from './view-form/view-form-components/view-button/view-button.component';
+import { ViewCheckboxComponent } from './view-form/view-form-components/view-checkbox/view-checkbox.component';
+import { ViewDatepickerComponent } from './view-form/view-form-components/view-datepicker/view-datepicker.component';
+import { ViewInputNumberComponent } from './view-form/view-form-components/view-input-number/view-input-number.component';
+import { ViewInputEmailComponent } from './view-form/view-form-components/view-input-email/view-input-email.component';
+import { ViewSelectComponent } from './view-form/view-form-components/view-select/view-select.component';
+import { ViewSelectMultiComponent } from './view-form/view-form-components/view-select-multi/view-select-multi.component';
+import { ViewRadioButtonComponent } from './view-form/view-form-components/view-radio-button/view-radio-button.component';
+import { ViewSlideToggleComponent } from './view-form/view-form-components/view-slide-toggle/view-slide-toggle.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +65,22 @@ import { HttpClientModule } from '@angular/common/http';
     SliderComponent,
     TextAreaComponent,
     EditDialogComponent,
-    ListComponent
+    ListComponent,
+    ViewFormComponent,
+    ViewHeaderComponent,
+    ViewParagraphComponent,
+    ViewDividerComponent,
+    ViewInputTextComponent,
+    ViewTextAreaComponent,
+    ViewButtonComponent,
+    ViewCheckboxComponent,
+    ViewDatepickerComponent,
+    ViewInputNumberComponent,
+    ViewInputEmailComponent,
+    ViewSelectComponent,
+    ViewSelectMultiComponent,
+    ViewRadioButtonComponent,
+    ViewSlideToggleComponent
   ],
   imports: [
     BrowserModule,

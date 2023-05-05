@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row gx-3">
+        <div class="col-lg-8" style="margin: auto;">
+            <ng-container *ngFor="let item of formData?.rows; let rowIndex = index">
+                <div class="form-element row-1 mt-3" *ngIf="item.rowVal == 'row-1'">
+                    <ng-container *ngFor="let child of item.children; let colIndex = index">
+                        <ng-container
+                            *ngTemplateOutlet="recursiveList; context: { $implicit: child, colIndex: colIndex, rowIndex: rowIndex}"></ng-container>
+                    </ng-container>
+                </div>
+                <div class="form-element row-2 mt-3" *ngIf="item.rowVal == 'row-2'">
+                    <ng-container *ngFor="let child of item.children; let colIndex = index">
+                        <ng-container
+                            *ngTemplateOutlet="recursiveList; context: { $implicit: child, colIndex: colIndex, rowIndex: rowIndex}"></ng-container>
+                    </ng-container>
+                </div>
+                <div class="form-element row-3 mt-3" *ngIf="item.rowVal == 'row-3'">
+                    <ng-container *ngFor="let child of item.children; let colIndex = index">
+                        <ng-container
+                            *ngTemplateOutlet="recursiveList; context: { $implicit: child, colIndex: colIndex, rowIndex: rowIndex}"></ng-container>
+                    </ng-container>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+
+<ng-template let-item #recursiveList let-row="rowIndex" let-col="colIndex">
+    <app-view-header [item]="item" *ngIf="item.elementVal == 'header'"></app-view-header>
+    <app-view-paragraph [item]="item" *ngIf="item.elementVal == 'paragraph'"></app-view-paragraph>
+    <app-view-divider *ngIf="item.elementVal == 'divider'"></app-view-divider>
+    <app-view-input-text [item]="item" *ngIf="item.elementVal == 'input-text'"></app-view-input-text>
+    <app-view-text-area [item]="item" *ngIf="item.elementVal == 'text-area'"></app-view-text-area>
+    <app-view-button [item]="item" *ngIf="item.elementVal == 'button'"></app-view-button>
+    <app-view-checkbox [item]="item" *ngIf="item.elementVal == 'checkbox'"></app-view-checkbox>
+    <app-view-datepicker [item]="item" *ngIf="item.elementVal == 'datepicker'"></app-view-datepicker>
+    <app-view-input-number  [item]="item" *ngIf="item.elementVal == 'input-number'"></app-view-input-number>
+    <app-view-input-email [item]="item" *ngIf="item.elementVal == 'input-email'"></app-view-input-email>
+    <app-view-select [item]="item" *ngIf="item.elementVal == 'select'"></app-view-select>
+    <app-view-select-multi [item]="item" *ngIf="item.elementVal == 'select-multi'"></app-view-select-multi>
+    <app-view-radio-button [item]="item" *ngIf="item.elementVal == 'radio-button'"></app-view-radio-button>
+    <app-view-slide-toggle [item]="item" *ngIf="item.elementVal == 'slide-toggle'"></app-view-slide-toggle>
+</ng-template>

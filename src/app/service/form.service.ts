@@ -17,4 +17,8 @@ export class FormService {
   saveForm(body: any): Observable<any> {
     return this.httpClient.post<any>(`${environment.prodUrl}`, body);
   }
+
+  getForm(id) {
+    return this.httpClient.get<any>(`${environment.prodUrl}${id}`);
+  }
 }
