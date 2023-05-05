@@ -44,4 +44,8 @@ export class ViewFormComponent {
       })
 
   }
+
+  handleValueChange(event: any){
+    console.log(event);
+  }
 }

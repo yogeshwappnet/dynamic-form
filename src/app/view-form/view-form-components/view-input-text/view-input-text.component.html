@@ -1,4 +1,9 @@
-    <mat-form-field class="example-full-width w-100">
-        <mat-label>{{item?.elementProperties?.label}}</mat-label>
-        <input type="text" matInput placeholder="{{item?.elementProperties?.placeholder}}">
-    </mat-form-field>
+<mat-form-field class="example-full-width w-100">
+    <mat-label>{{item?.elementProperties?.label}}</mat-label>
+    <input type="text" [formControl]="textFormControl" [errorStateMatcher]="matcher" matInput
+        placeholder="{{item?.elementProperties?.placeholder}}" (ngModelChange)="handleChange()">
+    <mat-hint>{{item?.elementProperties?.helpText}}</mat-hint>
+    <mat-error *ngIf="textFormControl.hasError('required')">
+        {{item?.elementProperties?.label}} is <strong>required</strong>
+    </mat-error>
+</mat-form-field>

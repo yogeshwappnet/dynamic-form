@@ -30,7 +30,7 @@
     <app-view-header [item]="item" *ngIf="item.elementVal == 'header'"></app-view-header>
     <app-view-paragraph [item]="item" *ngIf="item.elementVal == 'paragraph'"></app-view-paragraph>
     <app-view-divider *ngIf="item.elementVal == 'divider'"></app-view-divider>
-    <app-view-input-text [item]="item" *ngIf="item.elementVal == 'input-text'"></app-view-input-text>
+    <app-view-input-text [item]="item" (valueChange)="handleValueChange($event)" *ngIf="item.elementVal == 'input-text'"></app-view-input-text>
     <app-view-text-area [item]="item" *ngIf="item.elementVal == 'text-area'"></app-view-text-area>
     <app-view-button [item]="item" *ngIf="item.elementVal == 'button'"></app-view-button>
     <app-view-checkbox [item]="item" *ngIf="item.elementVal == 'checkbox'"></app-view-checkbox>
