@@ -3,6 +3,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { ToastrService } from 'ngx-toastr';
 import { DropEffect } from 'ngx-drag-drop';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { FormService } from '../service/form.service';
 
 @Component({
   selector: 'app-add-form',
@@ -68,10 +70,20 @@ export class AddFormComponent implements OnInit {
 
   form: any = []
 
+  dataForm = new UntypedFormGroup({
+    name: new UntypedFormControl('', Validators.required),
+    description: new UntypedFormControl('', Validators.required)
+  })
+
   constructor(public dialog: MatDialog,
+    private formService: FormService,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
+  }
+
+  get f() {
+    return this.dataForm.controls;
   }
 
   onDrop(event: any, item?: any) {
@@ -138,21 +150,47 @@ export class AddFormComponent implements OnInit {
     }
   }
 
-  validateForm(){
-    this.form.forEach((row: any) => {
-        if(!row?.children || row?.children?.length < 1){
+  validateForm() {
+
+    if (this.dataForm.valid) {
+      if (this.form.length == 0) {
+        this.toastr.error('Please add rows before saving form');
+      }
+
+      let isError = false
+      this.form.forEach((row: any) => {
+        if (!row?.children || row?.children?.length < 1) {
           this.toastr.error('Please remove the empty rows before saving the form')
-          return;
-        } else{
+          isError = true;
+        } else {
           row.children.forEach((col: any) => {
-            if(!col?.properties){
+            if (!col?.properties) {
               this.toastr.error('Please set properties for all controls')
-              return;
+              isError = true
             }
           });
         }
-    });
+      });
 
+      if (isError) {
+        return false;
+      }
+
+      let payload = {
+        name: this.dataForm.value.name,
+        description: this.dataForm.value.description,
+        published: false,
+        rows: this.form
+      }
+
+      this.formService.saveForm(payload).subscribe((res) => {
+        console.log(res);
+        this.toastr.success('Form Saved');
+      })
+
+    } else {
+      this.dataForm.markAllAsTouched();
+    }
     // call api to save form
     return true;
   }

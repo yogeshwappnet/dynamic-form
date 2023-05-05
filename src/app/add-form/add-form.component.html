@@ -1,5 +1,35 @@
 <div class="form-builder">
     <div class="container-fluid">
+        <form name="dataForm" [formGroup]="dataForm">
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Form Name</mat-label>
+                        <input matInput formControlName="name">
+                        <mat-error *ngIf="f['name'].invalid && (f['name'].touched)">
+                            Form name is required.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="w-100" appearance="fill">
+                        <mat-label>Form Description</mat-label>
+                        <input matInput formControlName="description">
+                        <mat-error *ngIf="f['description'].invalid && (f['description'].touched)">
+                            Form name is required.
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3" style="margin-top: 10px; padding-left: 10px;">
+                    <div (click)="validateForm()">
+                        <button mat-raised-button color="primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-fluid  mt-3">
         <div class="row gx-3">
             <div class="col-lg-8">
                 <div class="left-content" dndDropzone (dndDrop)="onDrop($event)">
@@ -63,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-3"*ngIf="form?.length > 0">
+        <div class="row mt-3" *ngIf="form?.length > 0">
             <div (click)="validateForm()">
                 <button mat-raised-button color="primary">Save</button>
             </div>
@@ -71,11 +101,8 @@
     </div>
 </div>
 
-
-
-
 <ng-template let-item #recursiveList let-row="rowIndex" let-col="colIndex">
-    <div [dndDraggable]="item" dndEffectAllowed="move"  (dndMoved)="onDragged(col, row, 'move')">
+    <div [dndDraggable]="item" dndEffectAllowed="move" (dndMoved)="onDragged(col, row, 'move')">
         <app-paragraph [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
             *ngIf="item.value == 'paragraph'"></app-paragraph>
         <app-header [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"

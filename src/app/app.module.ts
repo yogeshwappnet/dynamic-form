@@ -26,6 +26,8 @@ import { EditDialogComponent } from './add-form/edit-dialog/edit-dialog.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { DigitOnlyModule } from '@uiowa/digit-only';
+import { ListComponent } from './list/list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { DigitOnlyModule } from '@uiowa/digit-only';
     SlideToggleComponent,
     SliderComponent,
     TextAreaComponent,
-    EditDialogComponent
+    EditDialogComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { DigitOnlyModule } from '@uiowa/digit-only';
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
-    DigitOnlyModule
+    DigitOnlyModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
