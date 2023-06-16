@@ -48,6 +48,10 @@ import { ImageCanvasComponent } from './form-components/image-canvas/image-canva
 import { NgxEditorModule } from 'ngx-editor';
 import { ContentEditorComponent } from './form-components/content-editor/content-editor.component';
 import { QuestionScoreTestComponent } from './form-components/question-score-test/question-score-test.component';
+import { ViewSignatureComponent } from './view-form/view-form-components/view-signature/view-signature.component';
+import { ViewImageCanvasComponent } from './view-form/view-form-components/view-image-canvas/view-image-canvas.component';
+import { ViewContentEditorComponent } from './view-form/view-form-components/view-content-editor/view-content-editor.component';
+import { ViewQuestionScoreTestComponent } from './view-form/view-form-components/view-question-score-test/view-question-score-test.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +93,11 @@ import { QuestionScoreTestComponent } from './form-components/question-score-tes
     ViewSelectComponent,
     ViewSelectMultiComponent,
     ViewRadioButtonComponent,
-    ViewSlideToggleComponent
+    ViewSlideToggleComponent,
+    ViewSignatureComponent,
+    ViewImageCanvasComponent,
+    ViewContentEditorComponent,
+    ViewQuestionScoreTestComponent,
   ],
   imports: [
     BrowserModule,

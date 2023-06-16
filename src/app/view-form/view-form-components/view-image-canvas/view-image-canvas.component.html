@@ -1,0 +1,11 @@
+<h2 *ngIf="item?.elementProperties?.label"> {{item.elementProperties.label}}</h2>
+<h4 *ngIf="item?.elementProperties?.helpText"> {{item.elementProperties.helpText}}</h4>
+<div class="canvas-container">
+    <div>
+        <canvas width="500" height="400" #canvas></canvas>
+    </div>
+    <div class="canvas-btns">
+        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="success" (click)="clear()">Clear</button>
+    </div>
+</div>

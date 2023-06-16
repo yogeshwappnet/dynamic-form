@@ -1,0 +1,30 @@
+<h2 *ngIf="item?.elementProperties?.label"> {{item.elementProperties.label}}</h2>
+<h4 *ngIf="item?.elementProperties?.helpText"> {{item.elementProperties.helpText}}</h4>
+
+<div *ngIf="item?.elementProperties?.questions.length> 0">
+    <ng-container *ngFor="let ques of item.elementProperties.questions">
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-md-6">
+                <h4> {{ques.question}}</h4>
+            </div>
+            <div class="col-md-6">
+                <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="{{ques.answer1}}" [(ngModel)]="binding">{{ques.answer1}}</mat-radio-button>
+                    <mat-radio-button value="{{ques.answer2}}">{{ques.answer2}}</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+    </ng-container>
+    <button mat-raised-button color="primary" (click)="calculateScore()">Calculate Score</button>
+    <div>
+        <div class="score-container">
+            <div style="display: flex;">
+                <div>Your Score: </div>
+                <div style="margin-left: 10px;"> {{score}} </div>
+            </div>
+            <div style="display: flex;" class="risk">
+                High risk for future opioid-related aberrant behaviors
+            </div>  
+        </div>
+    </div>
+</div>
