@@ -66,6 +66,18 @@ export class AddFormComponent implements OnInit {
     }, {
       name: 'Slide Toggle',
       value: 'slide-toggle'
+    }, {
+      name: 'Signature',
+      value: 'signature'
+    }, {
+      name: 'Image Canvas',
+      value: 'image-canvas'
+    }, {
+      name: 'Content Editor',
+      value: 'content-editor'
+    }, {
+      name: 'Question Score Test',
+      value: 'question-score-test'
     },
   ]
 

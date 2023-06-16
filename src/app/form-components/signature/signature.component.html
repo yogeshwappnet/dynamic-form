@@ -1,0 +1,20 @@
+<div class="rows-bg rows-bg-dark fh-in">
+    <h2 *ngIf="item?.properties?.label"> {{item.properties.label}}</h2>
+    <h4 *ngIf="item?.properties?.helpText"> {{item.properties.helpText}}</h4>
+    <div class="canvas-container">
+        <div>
+            <canvas width="200" height="100" #canvas></canvas>
+        </div>
+        <div class="canvas-btns">
+            <button mat-raised-button color="success">Save</button>
+            <button mat-raised-button color="danger">Cancel</button>
+            <button mat-raised-button color="primary" (click)="clear()">Clear</button>
+        </div>
+    </div>
+    <div class="action-button align-items-center">
+        <a href="javascript: void(0)" (click)="edit()" class="edit-icon"><img src="../../assets/images/edit.png"
+                alt=""></a>
+        <a href="javascript: void(0)" (click)="close()" class="close-icon"><img src="../../assets/images/close.png"
+                alt=""></a>
+    </div>
+</div>

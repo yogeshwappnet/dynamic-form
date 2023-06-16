@@ -130,7 +130,15 @@
         <app-radio-button [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
             *ngIf="item.value == 'radio-button'"></app-radio-button>
         <app-slide-toggle [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
-            *ngIf="item.value == 'slide-toggle'"></app-slide-toggle>
+            *ngIf="item.value == 'seditItemlide-toggle'"></app-slide-toggle>
+        <app-signature [item]="item" *ngIf="item.value == 'signature'" (editClick)="editItem(item,row, col)"
+            (closeClick)="removeElement(col, row)"></app-signature>
+        <app-image-canvas [item]="item" *ngIf="item.value == 'image-canvas'" (editClick)="editItem(item,row, col)"
+            (closeClick)="removeElement(col, row)"></app-image-canvas>
+        <app-content-editor [item]="item" *ngIf="item.value == 'content-editor'" (editClick)="editItem(item,row, col)"
+            (closeClick)="removeElement(col, row)"></app-content-editor>
+        <app-question-score-test [item]="item" *ngIf="item.value == 'question-score-test'"
+            (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"></app-question-score-test>
         <!-- <app-slider [item]="item" (editClick)="editItem(item,row, col)" (closeClick)="removeElement(col, row)"
         *ngIf="item.value == 'slider'"></app-slider> -->
     </div>

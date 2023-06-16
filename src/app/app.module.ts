@@ -43,6 +43,11 @@ import { ViewSelectComponent } from './view-form/view-form-components/view-selec
 import { ViewSelectMultiComponent } from './view-form/view-form-components/view-select-multi/view-select-multi.component';
 import { ViewRadioButtonComponent } from './view-form/view-form-components/view-radio-button/view-radio-button.component';
 import { ViewSlideToggleComponent } from './view-form/view-form-components/view-slide-toggle/view-slide-toggle.component';
+import { SignatureComponent } from './form-components/signature/signature.component';
+import { ImageCanvasComponent } from './form-components/image-canvas/image-canvas.component';
+import { NgxEditorModule } from 'ngx-editor';
+import { ContentEditorComponent } from './form-components/content-editor/content-editor.component';
+import { QuestionScoreTestComponent } from './form-components/question-score-test/question-score-test.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +69,10 @@ import { ViewSlideToggleComponent } from './view-form/view-form-components/view-
     SlideToggleComponent,
     SliderComponent,
     TextAreaComponent,
+    SignatureComponent,
+    ImageCanvasComponent,
+    ContentEditorComponent,
+    QuestionScoreTestComponent,
     EditDialogComponent,
     ListComponent,
     ViewFormComponent,
@@ -92,7 +101,8 @@ import { ViewSlideToggleComponent } from './view-form/view-form-components/view-
     ReactiveFormsModule,
     ToastrModule.forRoot(),
     DigitOnlyModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

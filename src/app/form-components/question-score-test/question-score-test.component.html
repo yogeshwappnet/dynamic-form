@@ -1,0 +1,39 @@
+<div class="rows-bg rows-bg-dark fh-in">
+    <h2 *ngIf="item?.properties?.label"> {{item.properties.label}}</h2>
+    <h4 *ngIf="item?.properties?.helpText"> {{item.properties.helpText}}</h4>
+
+    <div *ngIf="item?.properties?.questions.length> 0">
+        <ng-container *ngFor="let item of item.properties.questions">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Question</mat-label>
+                        <input matInput [(ngModel)]="item.question" readonly [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Answer 1</mat-label>
+                        <input matInput [(ngModel)]="item.answer1" readonly [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Answer 2</mat-label>
+                        <input matInput [(ngModel)]="item.answer2" readonly [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+    <div *ngIf="item?.properties?.questions.length < 1">
+        No Question is Added, Please add question
+    </div>
+
+    <div class="action-button align-items-center">
+        <a href="javascript: void(0)" (click)="edit()" class="edit-icon"><img src="../../assets/images/edit.png"
+                alt=""></a>
+        <a href="javascript: void(0)" (click)="close()" class="close-icon"><img src="../../assets/images/close.png"
+                alt=""></a>
+    </div>
+</div>

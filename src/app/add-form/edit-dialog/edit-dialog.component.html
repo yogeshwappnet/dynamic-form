@@ -1,8 +1,9 @@
 <h2 mat-dialog-title>Edit Controller</h2>
-<mat-dialog-content class="mat-typography" style="width: 1000px;"> 
+<mat-dialog-content class="mat-typography" style="width: 1000px;">
     <form name="clientForm" [formGroup]="controllerForm">
         <div class="row">
-            <div class="col-md-6" *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
+            <div class="col-md-6"
+                *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
                 <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Control Name</mat-label>
                     <input matInput formControlName="name">
@@ -14,7 +15,7 @@
                     <input matInput formControlName="label">
                 </mat-form-field>
             </div>
-            <div class="col-md-6" *ngIf="data?.value == 'input-number'" >
+            <div class="col-md-6" *ngIf="data?.value == 'input-number'">
                 <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Minimum Value</mat-label>
                     <input matInput formControlName="minimum" digitOnly>
@@ -26,13 +27,15 @@
                     <input matInput formControlName="maximum" digitOnly>
                 </mat-form-field>
             </div>
-            <div class="col-md-6" *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
+            <div class="col-md-6"
+                *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
                 <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Placeholder</mat-label>
                     <input matInput formControlName="placeholder">
                 </mat-form-field>
             </div>
-            <div class="col-md-6" *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
+            <div class="col-md-6"
+                *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
                 <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Help Text</mat-label>
                     <input matInput formControlName="helpText">
@@ -45,21 +48,65 @@
                     <textarea matInput formControlName="value"></textarea>
                 </mat-form-field>
             </div>
-            <div class="col-md-6" *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
+            <div class="col-md-6"
+                *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
                 <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Description</mat-label>
                     <textarea matInput formControlName="description"></textarea>
                 </mat-form-field>
             </div>
-            <div class="col-md-6" *ngIf="data?.value == 'header' || data?.value == 'paragraph' && data?.value != 'button'">
+            <div class="col-md-6"
+                *ngIf="data?.value == 'header' || data?.value == 'paragraph' && data?.value != 'button'">
                 <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Content</mat-label>
                     <textarea matInput formControlName="content"></textarea>
                 </mat-form-field>
             </div>
-
-            <div class="col-md-6" *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
+            <div class="col-md-6" *ngIf="data?.value == 'image-canvas'">
+                <input type="file" name="file" accept="image/*" (change)="uploadImage($event)" />
+            </div>
+            <div class="col-md-6"
+                *ngIf="data?.value != 'header' && data?.value != 'paragraph' && data?.value != 'button'">
                 <mat-slide-toggle formControlName="isRequired">Is required</mat-slide-toggle>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 *ngIf="questionArr?.length > 0">Add Question</h2>
+            <div class="row" *ngFor="let item of questionArr">
+                <div class="col-md-6" >
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Question</mat-label>
+                        <input matInput [(ngModel)]="item.question" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Answer 1</mat-label>
+                        <input matInput [(ngModel)]="item.answer1" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Answer 2</mat-label>
+                        <input matInput [(ngModel)]="item.answer2" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Correct Answer</mat-label>
+                        <input matInput [(ngModel)]="item.correctAnswer" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field appearance="fill" class="w-100">
+                        <mat-label>Points</mat-label>
+                        <input matInput [(ngModel)]="item.points" [ngModelOptions]="{standalone: true}">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button mat-button color="primary" (click)="addQuestion()">Add Question</button>
             </div>
         </div>
     </form>
